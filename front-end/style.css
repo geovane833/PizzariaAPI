@@ -1,0 +1,348 @@
+/* Reset básico */
+body, h1, h2, ul, li, p, form, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.header {
+    background-color: #d35400;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.header h1 span {
+    color: #f39c12;
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Botões de ações */
+.actions {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d35400;
+}
+
+/* Lista de pizzas */
+.pizza-list h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#pizzas {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+#pizzas li {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+#pizzas img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff, #f4f4f4);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: slideIn 0.4s ease-out;
+}
+
+.modal-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 25px;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.modal-content .close:hover {
+    color: #d35400;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    font-size: 16px;
+    color: #333;
+}
+
+.modal-content input,
+.modal-content textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal-content .btn-submit {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content .btn-submit:hover {
+    background: linear-gradient(135deg, #229954, #27ae60);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Modal base */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+    z-index: 1000; /* Certifica-se que o modal fique sobre outros elementos */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 80%; /* Pode ajustar o tamanho conforme necessário */
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+/* Fechar botão */
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Quando o modal estiver visível */
+.modal.show {
+    display: flex; /* Exibe o modal */
+}
+
+/* Para a lista de clientes, ajustar layout de cartão */
+#clientes {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cartões se ajustem quando necessário */
+    gap: 20px; /* Espaçamento entre os cartões */
+    padding: 0;
+}
+
+/* Cartão do cliente */
+#clientes li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px; /* Largura dos cartões */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover nos cartões */
+#clientes li:hover {
+    transform: translateY(-10px); /* Levanta o cartão ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Título e conteúdo do cartão */
+#clientes li h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#clientes li p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Estilo para o select */
+select {
+    width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
+    padding: 10px; /* Adiciona espaçamento interno */
+    font-size: 14px; /* Define o tamanho da fonte */
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Cor de fundo branca */
+    color: #333; /* Cor do texto */
+    box-sizing: border-box; /* Inclui o padding na largura total */
+    outline: none; /* Remove o contorno padrão */
+    transition: all 0.3s ease; /* Transição suave para foco */
+}
+
+/* Estilo quando o select estiver em foco */
+select:focus {
+    border-color: #66afe9; /* Cor da borda quando em foco */
+    box-shadow: 0 0 5px rgba(102, 175, 233, .6); /* Sombras de foco */
+}
+
+/* Estilo para as opções dentro do select */
+select option {
+    padding: 10px; /* Espaçamento interno nas opções */
+    background-color: #fff; /* Cor de fundo das opções */
+    color: #333; /* Cor do texto das opções */
+}
+
+/* Ajuste para o tamanho do select (opcional) */
+select {
+    height: 40px; /* Ajuste a altura para ficar consistente com inputs */
+}
+
+
+/* Para a lista de clientes, ajustar layout de cartão */
+#Vendas {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cartões se ajustem quando necessário */
+    gap: 20px; /* Espaçamento entre os cartões */
+    padding: 0;
+}
+
+/* Cartão do cliente */
+#Vendas li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px; /* Largura dos cartões */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover nos cartões */
+#Vendas li:hover {
+    transform: translateY(-10px); /* Levanta o cartão ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Título e conteúdo do cartão */
+#Vendas li h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#Vendas li p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
